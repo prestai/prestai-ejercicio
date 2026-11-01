@@ -50,6 +50,45 @@ api/   Python 3.12 · FastAPI · SQLAlchemy 2 · Postgres 16 · pytest
 web/   React 18 · TypeScript · Vite · Vitest + Testing Library
 ```
 
+Así están distribuidas las piezas cuando hacés `make up`:
+
+```mermaid
+flowchart LR
+    subgraph NAV["Tu navegador"]
+        direction TB
+        UI["App React<br/>formulario de 3 pasos"]
+        LS[("localStorage<br/>cliente-actual · borrador")]
+        UI --- LS
+    end
+
+    subgraph DOCKER["docker compose"]
+        WEB["web · puerto 5173<br/>Vite sirve la app"]
+        subgraph API["api · puerto 8000 · FastAPI"]
+            direction TB
+            R["routers<br/>/clientes · /ofertas"]
+            S["servicios<br/>score · comisión"]
+            C["cronograma · atraso"]
+            R --> S
+            R --> C
+        end
+        DB[("db · Postgres 16<br/>cliente · oferta · consulta_buro")]
+        BF["buro_falso.py<br/>simula el proveedor externo"]
+    end
+
+    UI -- "1 · pide la app" --> WEB
+    UI -- "2 · HTTP + JSON<br/>header X-Cliente-Id" --> R
+    API -- "SQL" --> DB
+    S -. "consultar(cédula)" .-> BF
+```
+
+- **El navegador habla directo con la API** en `localhost:8000`; el contenedor `web`
+  sólo le entrega la app.
+- **La base no está expuesta afuera de Docker:** sólo la ve la API. Los tests usan
+  otra base, `mini_credito_test`, en el mismo Postgres.
+- **El buró es un módulo dentro de la API** para que la prueba no dependa de
+  internet. En la vida real sería un proveedor externo al que se llama por HTTP:
+  pensalo así.
+
 - **Login simulado:** el front manda el id del cliente en el header `X-Cliente-Id`.
   Tratalo como si viniera de un token ya validado. Hay tres clientes de prueba: Ana
   (score 820), Bruno (310) y Carla (640).
@@ -89,9 +128,9 @@ Los tiempos son orientativos. Elegí el orden; si no llegás a todo, contanos en
    bug** que no está en esta lista. Encontralo y arreglalo (o, si no te da el
    tiempo, explicalo en `NOTAS.md`).
 5. **Arquitectura** (~30 min, sin código). En `ARQUITECTURA.md`, en la raíz:
-   - **Cómo funciona hoy.** Un diagrama de las piezas (web, API, base, buró) y otro
-     de qué pasa desde que el cliente aprieta «Confirmar» hasta que tiene su
-     oferta, **con tus cambios ya hechos**. Recomendamos
+   - **Cómo funciona hoy.** Partiendo del diagrama de piezas de arriba, un
+     diagrama de qué pasa desde que el cliente aprieta «Confirmar» hasta que tiene
+     su oferta, **con tus cambios ya hechos**. Recomendamos
      [Mermaid](https://mermaid.js.org), que GitHub muestra directo en el Markdown.
    - **Cómo la harías crecer.** Imaginá que en un año hay una app móvil además de
      la web, un segundo buró, avisos por SMS y email cuando se aprueba una oferta,
