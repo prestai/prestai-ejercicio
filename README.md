@@ -38,7 +38,7 @@ make reset      # borra la base y arranca de cero
 - API con documentación interactiva: http://localhost:8000/docs
 - Web: http://localhost:5173
 
-Al empezar, **1 test de la API falla a propósito**: es parte de las tareas.
+Al empezar, todos los tests pasan: los que hagan falta los escribís vos.
 
 Si el puerto 8000 o el 5173 están ocupados, cambialos en `docker-compose.yml`. Si
 algo no levanta en 10 minutos, escribinos: el problema es nuestro, no tuyo.
@@ -72,7 +72,7 @@ web/   React 18 · TypeScript · Vite · Vitest + Testing Library
 Los tiempos son orientativos. Elegí el orden; si no llegás a todo, contanos en
 `NOTAS.md` qué dejaste afuera y por qué.
 
-1. **Crear una oferta bien** (~30 min). `POST /ofertas` hoy no valida el monto
+1. **Crear una oferta bien** (~25 min). `POST /ofertas` hoy no valida el monto
    máximo del plazo, y si el cliente hace doble clic en «Confirmar» se crean dos
    ofertas. Arreglalo para que **no pueda haber dos ofertas pendientes del mismo
    cliente**, aunque lleguen dos requests al mismo tiempo. Del lado de la web, que
@@ -80,32 +80,42 @@ Los tiempos son orientativos. Elegí el orden; si no llegás a todo, contanos en
 2. **No pagar dos veces al buró** (~15 min). Cada llamada a elegibilidad o a crear
    una oferta consulta al buró de nuevo. Usá la consulta guardada si tiene menos de
    30 días.
-3. **Días de atraso** (~10 min). `dias_de_atraso` (`api/app/atraso.py`) tiene un
-   test que falla. Arreglalo.
-4. **El borrador de la solicitud** (~20 min). El formulario de la web guarda un
+3. **El borrador de la solicitud** (~15 min). El formulario de la web guarda un
    borrador para retomarlo. Hoy, si Ana deja un borrador a medias, sale y entra
    Bruno en la misma computadora, Bruno ve el monto, el teléfono y la dirección de
    Ana. Arreglalo, y que el borrador se borre cuando la solicitud se envía. Con
    tests.
-5. **Revisión de código** (~15 min). En el código que ya existe hay **al menos un
+4. **Revisión de código** (~15 min). En el código que ya existe hay **al menos un
    bug** que no está en esta lista. Encontralo y arreglalo (o, si no te da el
    tiempo, explicalo en `NOTAS.md`).
-6. **`NOTAS.md`** (~20 min). En la raíz, corto:
+5. **Arquitectura** (~30 min, sin código). En `ARQUITECTURA.md`, en la raíz:
+   - **Cómo funciona hoy.** Un diagrama de las piezas (web, API, base, buró) y otro
+     de qué pasa desde que el cliente aprieta «Confirmar» hasta que tiene su
+     oferta, **con tus cambios ya hechos**. Recomendamos
+     [Mermaid](https://mermaid.js.org), que GitHub muestra directo en el Markdown.
+   - **Cómo la harías crecer.** Imaginá que en un año hay una app móvil además de
+     la web, un segundo buró, avisos por SMS y email cuando se aprueba una oferta,
+     y 4 desarrolladores trabajando a la vez. ¿La partirías en microservicios?
+     Si sí: qué servicios, de qué datos es dueño cada uno, cómo se comunican
+     (llamada directa o eventos) y cómo seguís garantizando que no haya dos ofertas
+     pendientes ni dos pagos al buró. Qué pasa si uno se cae.
+   - **Qué no partirías y por qué.** «Todavía no lo partiría» también es una
+     respuesta válida si la justificás.
+
+   No miramos que conozcas tal herramienta: miramos que las decisiones tengan un
+   motivo y que veas lo que cuesta cada una. En la charla lo recorremos juntos.
+6. **`NOTAS.md`** (~10 min). En la raíz, corto:
    - qué hiciste y qué dejaste afuera, y por qué;
    - las decisiones que tomaste y qué alternativas descartaste;
-   - un diagrama de qué pasa desde que el cliente aprieta «Confirmar» hasta que
-     tiene su oferta, **con tus cambios ya hechos**. Recomendamos
-     [Mermaid](https://mermaid.js.org), que GitHub muestra directo en el Markdown.
-     Chico alcanza: miramos que sea correcto, no que sea lindo;
    - cómo usaste la IA, si la usaste, y qué le corregiste.
 
 ## Qué miramos
 
 - Que funcione y tenga tests que prueben lo que importa.
-- Cómo manejás plata, fechas y concurrencia.
+- Cómo manejás plata y concurrencia.
 - Datos personales: qué guardás y qué logueás.
+- Que entiendas cómo funciona el sistema y puedas proponer cómo hacerlo crecer.
 - Código claro, que se entienda sin vos al lado.
-- Tu criterio para priorizar y explicar en `NOTAS.md`.
 
 No miramos: diseño visual, cantidad de líneas ni que uses tal o cual librería.
 
