@@ -7,3 +7,5 @@ dist/
 .env
 .DS_Store
 *.tsbuildinfo
+# Configuración local del agente: puede tener claves
+.claude/settings.local.json

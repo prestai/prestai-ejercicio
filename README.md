@@ -117,7 +117,7 @@ Una guía, no una obligación. Es como trabajaríamos nosotros con 2 horas.
 2. **Leé antes de escribir.** Recorré `api/app/` y `web/src/` con el diagrama de
    arriba al lado. Es poco código: leelo entero, no sólo lo que nombran las tareas.
 3. **Planificá el tiempo.** Mirá los tiempos de cada tarea y elegí el orden. Dejá
-   **unos 40 minutos** para `ARQUITECTURA.md` y `NOTAS.md`: si los dejás para el
+   **unos 45 minutos** para `ARQUITECTURA.md`, la sección del agente y `NOTAS.md`: si los dejás para el
    final, se comen el tiempo que no tenés.
 4. **De a una tarea, con su test y su commit.** Escribí el test que muestra el
    problema, arreglalo y commiteá. Un historial con un commit por tarea se lee
@@ -157,10 +157,10 @@ Los tiempos son orientativos. Elegí el orden; si no llegás a todo, contanos en
    Bruno en la misma computadora, Bruno ve el monto, el teléfono y la dirección de
    Ana. Arreglalo, y que el borrador se borre cuando la solicitud se envía. Con
    tests.
-4. **Revisión de código** (~15 min). En el código que ya existe hay **al menos un
+4. **Revisión de código** (~10 min). En el código que ya existe hay **al menos un
    bug** que no está en esta lista. Encontralo y arreglalo (o, si no te da el
    tiempo, explicalo en `NOTAS.md`).
-5. **Arquitectura** (~30 min, sin código). En `ARQUITECTURA.md`, en la raíz:
+5. **Arquitectura** (~25 min, sin código). En `ARQUITECTURA.md`, en la raíz:
    - **Cómo funciona hoy.** Partiendo del diagrama de piezas de arriba, un
      diagrama de qué pasa desde que el cliente aprieta «Confirmar» hasta que tiene
      su oferta, **con tus cambios ya hechos**. Recomendamos
@@ -179,7 +179,22 @@ Los tiempos son orientativos. Elegí el orden; si no llegás a todo, contanos en
 
    No miramos que conozcas tal herramienta: miramos que las decisiones tengan un
    motivo y que veas lo que cuesta cada una. En la charla lo recorremos juntos.
-6. **`NOTAS.md`** (~10 min). En la raíz, corto:
+6. **Cómo trabajás con tu agente** (~10 min). Queremos ver cómo trabajás con un
+   agente de código (Claude Code, Cursor, Codex o el que uses):
+   - **Commiteá la configuración que usaste en este repo**: el archivo de
+     instrucciones del proyecto (`CLAUDE.md`, `AGENTS.md` o el que use tu
+     herramienta) y, si armaste alguna, una skill o comando propio. **Sin claves ni
+     tokens.**
+   - En `NOTAS.md`, una sección **«Agente»**, corta:
+     - qué le dejaste en la memoria del proyecto y por qué, y qué dejaste afuera;
+     - qué MCP (o integraciones) conectarías para trabajar en este proyecto todos
+       los días, para qué, y cuál no conectarías;
+     - cómo cuidaste el contexto y los tokens: qué le diste a leer, cuándo
+       arrancaste de cero, qué delegaste;
+     - cómo organizarías un día de trabajo con el agente en un proyecto así.
+
+   Si no usás agentes, contanos igual cómo organizarías el trabajo con uno.
+7. **`NOTAS.md`** (~10 min). En la raíz, corto:
    - qué hiciste y qué dejaste afuera, y por qué;
    - las decisiones que tomaste, qué alternativas descartaste y qué impacto tiene
      cada una en el negocio (costo, riesgo, experiencia del cliente);
@@ -191,6 +206,8 @@ Los tiempos son orientativos. Elegí el orden; si no llegás a todo, contanos en
 - Cómo manejás plata y concurrencia.
 - Datos personales: qué guardás y qué logueás.
 - Que entiendas cómo funciona el sistema y puedas proponer cómo hacerlo crecer.
+- Cómo trabajás con agentes de código: qué les das, qué les pedís y cómo
+  revisás lo que hacen.
 - Que conectes tus decisiones técnicas con el negocio y las puedas explicar a
   alguien que no es técnico.
 - Código claro, que se entienda sin vos al lado.
