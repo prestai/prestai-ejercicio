@@ -106,6 +106,32 @@ flowchart LR
 - **Una consulta al buró sirve 30 días** para el mismo cliente.
 - Operamos en Uruguay: **las fechas de vencimiento son en hora de Montevideo.**
 
+## Cómo encararlo
+
+Una guía, no una obligación. Es como trabajaríamos nosotros con 2 horas.
+
+1. **Primero hacelo andar** (~10 min). `make up`, abrí la web, pedí un préstamo
+   como Ana y como Bruno, mirá la API en `/docs` y corré `make test`. Entender
+   qué hace hoy ahorra tiempo después.
+2. **Leé antes de escribir.** Recorré `api/app/` y `web/src/` con el diagrama de
+   arriba al lado. Es poco código: leelo entero, no sólo lo que nombran las tareas.
+3. **Planificá el tiempo.** Mirá los tiempos de cada tarea y elegí el orden. Dejá
+   **unos 40 minutos** para `ARQUITECTURA.md` y `NOTAS.md`: si los dejás para el
+   final, se comen el tiempo que no tenés.
+4. **De a una tarea, con su test y su commit.** Escribí el test que muestra el
+   problema, arreglalo y commiteá. Un historial con un commit por tarea se lee
+   mucho mejor que uno solo al final.
+5. **En cada cambio, preguntate qué puede salir mal**: qué pasa si llega dos
+   veces, si algo externo falla o tarda, y qué datos personales toca. Si lo ves y
+   no te da el tiempo de resolverlo, anotalo en `NOTAS.md`: también suma.
+6. **Usá la IA, pero leé lo que te da.** Si no podés explicar una línea, no la
+   entregues. Anotá qué le corregiste.
+7. **A las 2 horas, cortá.** Preferimos 4 tareas bien hechas y bien explicadas
+   antes que 6 a medias.
+8. **Prepará la charla.** Vas a recorrer tu entrega con nosotros, explicar por qué
+   decidiste lo que decidiste y hacer un cambio chico en vivo sobre tu propio
+   código. Lo más importante de la prueba es que puedas defender lo que hiciste.
+
 ## Tareas
 
 Los tiempos son orientativos. Elegí el orden; si no llegás a todo, contanos en
