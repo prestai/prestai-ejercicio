@@ -20,7 +20,7 @@ proveedor externo que cobra por consulta y datos personales.
    **privado** en tu cuenta. (No hagas fork: los forks de un repo público son
    públicos.)
 2. Trabajá ahí, con commits chicos y mensajes claros. El historial también se lee.
-3. Al terminar, invitá a **@leandrogallo** como colaborador y avisanos por mail.
+3. Al terminar, invitá a **@lgallo-prestai** como colaborador y avisanos por mail.
 
 Si no tenés cuenta de GitHub, mandanos un `.zip` del repo **con la carpeta `.git`**.
 
