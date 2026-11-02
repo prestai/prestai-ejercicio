@@ -11,7 +11,8 @@ proveedor externo que cobra por consulta y datos personales.
 - **IA:** podés usar Claude, Copilot, Cursor o lo que uses normalmente. Lo que nos
   importa es tu criterio: contanos en `NOTAS.md` qué te sugirió y qué corregiste.
 - **Después:** una charla de 45 minutos donde recorremos tu entrega y te pedimos un
-  cambio chico en vivo.
+  cambio chico en vivo. Puede estar alguien del negocio, no sólo técnicos:
+  preparala para que se entienda también sin saber programar.
 
 ## Cómo entregar
 
@@ -131,6 +132,12 @@ Una guía, no una obligación. Es como trabajaríamos nosotros con 2 horas.
 8. **Prepará la charla.** Vas a recorrer tu entrega con nosotros, explicar por qué
    decidiste lo que decidiste y hacer un cambio chico en vivo sobre tu propio
    código. Lo más importante de la prueba es que puedas defender lo que hiciste.
+9. **Pensá cada decisión también como negocio.** Para cada decisión importante,
+   tené clara una respuesta corta a «¿y esto qué le cambia a la empresa?»: cuánto
+   cuesta (por ejemplo, consultas al buró que se pagan), qué riesgo evita (plata,
+   datos personales, regulación), qué ve el cliente (un error, una demora, un
+   aviso) y cuánto frena o acelera al equipo. Explicalo sin jerga: si quien te
+   escucha no es técnico, igual tiene que entender por qué tu decisión conviene.
 
 ## Tareas
 
@@ -166,12 +173,16 @@ Los tiempos son orientativos. Elegí el orden; si no llegás a todo, contanos en
      pendientes ni dos pagos al buró. Qué pasa si uno se cae.
    - **Qué no partirías y por qué.** «Todavía no lo partiría» también es una
      respuesta válida si la justificás.
+   - **Qué impacto tiene en el negocio.** Para tu propuesta: qué cuesta (de
+     infraestructura y de trabajo del equipo), qué riesgo baja o sube, qué nota el
+     cliente cuando algo falla, y qué conviene hacer primero si no se puede todo.
 
    No miramos que conozcas tal herramienta: miramos que las decisiones tengan un
    motivo y que veas lo que cuesta cada una. En la charla lo recorremos juntos.
 6. **`NOTAS.md`** (~10 min). En la raíz, corto:
    - qué hiciste y qué dejaste afuera, y por qué;
-   - las decisiones que tomaste y qué alternativas descartaste;
+   - las decisiones que tomaste, qué alternativas descartaste y qué impacto tiene
+     cada una en el negocio (costo, riesgo, experiencia del cliente);
    - cómo usaste la IA, si la usaste, y qué le corregiste.
 
 ## Qué miramos
@@ -180,6 +191,8 @@ Los tiempos son orientativos. Elegí el orden; si no llegás a todo, contanos en
 - Cómo manejás plata y concurrencia.
 - Datos personales: qué guardás y qué logueás.
 - Que entiendas cómo funciona el sistema y puedas proponer cómo hacerlo crecer.
+- Que conectes tus decisiones técnicas con el negocio y las puedas explicar a
+  alguien que no es técnico.
 - Código claro, que se entienda sin vos al lado.
 
 No miramos: diseño visual, cantidad de líneas ni que uses tal o cual librería.
